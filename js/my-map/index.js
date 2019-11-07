@@ -2,8 +2,8 @@
 
 Array.prototype.myMap = function(callback, thisArg) {
     let context, newArray, iterator;
-    const thisArray = Object(this);
-    const arrayLength = thisArray.length >>> 0;
+    let thisArray = Object(this);
+    let arrayLength = thisArray.length >>> 0;
 
     if (!this) {
         throw new TypeError(' this is null or not defined');

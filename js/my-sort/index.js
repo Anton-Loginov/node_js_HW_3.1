@@ -1,27 +1,19 @@
 'use strict';
 
 Array.prototype.mySort = function (funcSort) {
-    funcSort = funcSort || function (a, b) {
-        a += '';
-        b += '';
-        return a > b;
-    };
-    let swapped = false;
-    const thisArray = Object(this);
-    const len = thisArray.length;
-    const newArr = thisArray.slice(0);
+    funcSort = funcSort || ((a, b) => a > b);
 
-    do {
-        for(let i = 0; i < len - 1; ++i) {
-            if (funcSort(newArr[i], newArr[i+1])) {
-                let temp = newArr[i];
-                newArr[i] = newArr[i+1];
-                newArr[i+1] = temp;
-                swapped = true;
+    let n = this.length;
+    let newArr = this.slice(0);
+
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = 0; j < n - 1 - i; j++) {
+            if (funcSort(newArr[j + 1], newArr[j])) {
+                let t = newArr[j + 1];
+                newArr[j + 1] = newArr[j];
+                newArr[j] = t;
             }
         }
     }
-    while(swapped);
-
     return newArr;
 };

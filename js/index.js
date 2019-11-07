@@ -18,7 +18,7 @@ const timer = require('./timer');
     timer.time("", "mySort");
 
     let mySortArray = [2, 10, 0, 12, 14, 20];
-    let sorted = mySortArray.mySort((a, b) => a.length < b.length);
+    let sorted = mySortArray.mySort((a, b) => a > b);
 
     console.log(sorted, 'sorted');
     timer.timeEnd("", "mySort");

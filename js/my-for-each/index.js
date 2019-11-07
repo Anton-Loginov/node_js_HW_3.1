@@ -2,8 +2,8 @@
 
 Array.prototype.myForEach = function (callback, thisArg) {
     let context, iterator;
-    const thisArray = Object(this);
-    const len = thisArray.length >>> 0;
+    let thisArray = Object(this);
+    let len = thisArray.length >>> 0;
 
     if (!this) {
         throw new TypeError(' this is null or not defined');
